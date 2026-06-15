@@ -1,0 +1,27 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  onDark?: boolean;
+}
+
+const { size = 'md', onDark = false } = Astro.props;
+
+// Wordmark is 4885x1426 (~3.43:1). Height-based sizing keeps the ratio.
+const heightClasses = {
+  sm: 'h-11',  // ~44px — header
+  md: 'h-12',
+  lg: 'h-14',
+};
+
+const src = onDark ? '/labproof-wordmark-white.png' : '/labproof-wordmark-ink.png';
+---
+
+<img
+  src={src}
+  alt="Labproof"
+  class:list={['w-auto select-none', heightClasses[size]]}
+  width="4885"
+  height="1426"
+  loading="eager"
+  decoding="async"
+/>

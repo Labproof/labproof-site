@@ -1,0 +1,119 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => ({
+    params: { slug: note.slug },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+const { Content } = await note.render();
+
+const pillarLabels = {
+  'intelligence-service-building': 'Intelligence Service Building',
+  'automation-professional-services': 'Automation in Professional Services',
+  'malaysian-market-insights': 'Malaysian Market Insights',
+  'products-for-intermediaries': 'Building Products for Intermediaries',
+};
+---
+
+<Layout title={`${note.data.title} — Labproof Notes`} description={note.data.excerpt}>
+  <Header />
+
+  <article class="pt-[120px] pb-20 px-6 md:px-20">
+    <div class="max-w-[720px] mx-auto">
+      <!-- Meta -->
+      <div class="mb-8">
+        <a href="/notes" class="text-mono text-green hover:text-ink transition-colors mb-4 inline-block">
+          ← Back to notes
+        </a>
+        <p class="text-mono text-slate text-xs mb-3">
+          {pillarLabels[note.data.pillar]}
+        </p>
+        <h1 class="font-newsreader text-4xl md:text-5xl font-medium tracking-tight mb-4">
+          {note.data.title}
+        </h1>
+        <div class="flex items-center justify-between gap-4 text-mono text-slate text-xs">
+          <span>{note.data.date.toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          {note.data.readTime && <span>{note.data.readTime} min read</span>}
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-line my-8"></div>
+
+      <!-- Content -->
+      <div class="prose prose-invert max-w-none mb-12">
+        <Content />
+      </div>
+
+      <!-- Footer CTA -->
+      <div class="border-t border-line pt-8">
+        <p class="text-slate mb-6">
+          Thoughts on building intelligence services, automation, and business in Malaysia.
+        </p>
+        <a href="/notes" class="inline-flex items-center gap-2 px-6 py-3 bg-ink text-paper rounded-[8px] font-medium hover:shadow-lg hover:-translate-y-1 transition-all duration-150">
+          More notes
+          <svg width="0.9em" height="0.9em" viewBox="0 0 24 24" fill="none">
+            <polygon points="0,0 24,12 0,24" fill="#2F9E6A" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>
+
+<style is:global>
+  .prose {
+    @apply text-lg leading-relaxed;
+  }
+
+  .prose p {
+    @apply mb-6;
+  }
+
+  .prose strong {
+    @apply font-medium text-ink;
+  }
+
+  .prose em {
+    @apply italic text-slate;
+  }
+
+  .prose ul,
+  .prose ol {
+    @apply mb-6 pl-6 space-y-2;
+  }
+
+  .prose li {
+    @apply text-slate;
+  }
+
+  .prose li strong {
+    @apply text-ink;
+  }
+
+  .prose code {
+    @apply bg-paper-2 px-2 py-1 rounded text-mono text-sm;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-green pl-6 italic text-slate mb-6;
+  }
+
+  .prose h2 {
+    @apply text-2xl font-medium mt-8 mb-4;
+  }
+
+  .prose h3 {
+    @apply text-xl font-medium mt-6 mb-3;
+  }
+</style>

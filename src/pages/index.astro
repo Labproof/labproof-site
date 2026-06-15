@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Labproof — live & demo projects';
+const description = 'A home for live and demo projects, mostly AI. Open and run them yourself — proof that it works.';
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="pt-[120px] pb-16 md:pt-[160px] md:pb-20 px-6 md:px-20">
+    <div class="max-w-container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
+        <!-- Left Column -->
+        <div class="flex flex-col justify-center">
+          <!-- Kicker -->
+          <div class="flex items-center gap-2 mb-4 text-mono text-green">
+            <span class="inline-block w-2 h-2 rounded-full bg-green"></span>
+            <span>Live · Labproof.tech</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="font-newsreader text-4xl md:text-6xl font-medium tracking-tight mb-6 leading-tight">
+            Proof that<br />it works.
+          </h1>
+
+          <!-- Subhead -->
+          <p class="text-lg md:text-xl text-slate mb-8 max-w-lg leading-relaxed">
+            Live and demo projects — mostly AI — that you can open and run. No mockups. No claims.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-3 mb-8">
+            <a
+              href="#projects"
+              class="inline-flex items-center justify-center gap-2 bg-ink text-paper px-6 py-3 rounded-button font-medium hover:shadow-lg hover:-translate-y-1 transition-all duration-150"
+            >
+              Press Play
+              <svg width="0.9em" height="0.9em" viewBox="0 0 24 24" fill="none">
+                <polygon points="0,0 24,12 0,24" fill="#2F9E6A" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Meta -->
+          <p class="text-mono text-slate text-xs">nothing running here yet</p>
+        </div>
+
+        <!-- Right Column: Hero Image -->
+        <div class="flex items-center justify-center">
+          <div class="relative w-full aspect-[5/4] rounded-card border-2 border-line overflow-hidden">
+            <img
+              src="/moodboard/a1.jpg"
+              alt="Laboratory glassware"
+              class="w-full h-full object-cover"
+              width="1400"
+              height="1120"
+              loading="eager"
+              decoding="async"
+            />
+            <div class="absolute bottom-3 left-3 font-mono text-[10px] tracking-widest uppercase bg-paper/85 backdrop-blur px-2 py-1 rounded">
+              Specimen №1
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Strip -->
+  <section class="border-t border-b border-line py-8 px-6 md:px-20 bg-white">
+    <div class="max-w-container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <h2 class="font-newsreader text-2xl md:text-3xl font-medium tracking-tight">
+          Labproof. Live and running. If it's here, you can press play.
+        </h2>
+        <p class="text-slate leading-relaxed">
+          Every project works. Open it, read the code, run it yourself. Some are finished products. Some are experiments. None are mockups.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 md:py-28 px-6 md:px-20">
+    <div class="max-w-container mx-auto">
+      <!-- Section Header -->
+      <div class="flex items-baseline justify-between gap-4 mb-12">
+        <h2 class="font-newsreader text-3xl md:text-4xl font-medium tracking-tight">
+          Projects
+        </h2>
+        <div class="hidden sm:flex gap-2">
+          <button class="px-4 py-2 rounded-pill bg-ink text-paper text-mono text-xs font-medium transition-all duration-150 cursor-pointer" data-filter="all">
+            All
+          </button>
+          <button class="px-4 py-2 rounded-pill border-2 border-slate text-slate text-mono text-xs font-medium hover:border-ink hover:text-ink transition-all duration-150 cursor-pointer" data-filter="live">
+            Live
+          </button>
+          <button class="px-4 py-2 rounded-pill border-2 border-slate text-slate text-mono text-xs font-medium hover:border-ink hover:text-ink transition-all duration-150 cursor-pointer" data-filter="demo">
+            Demo
+          </button>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="text-center py-20">
+        <p class="text-xl text-slate mb-4">
+          Nothing running here yet.
+        </p>
+        <p class="text-sm text-slate">
+          Check back soon.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notes CTA Section -->
+  <section class="py-20 md:py-28 px-6 md:px-20 bg-paper-2">
+    <div class="max-w-container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-newsreader text-3xl md:text-4xl font-medium tracking-tight mb-4">
+            Notes
+          </h2>
+          <p class="text-lg text-slate mb-8 leading-relaxed">
+            Observations on building intelligence services, automation in professional services, and doing business in Malaysia. Direct thoughts from the field.
+          </p>
+          <a
+            href="/notes"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-ink text-paper rounded-[8px] font-medium hover:shadow-lg hover:-translate-y-1 transition-all duration-150"
+          >
+            Read notes
+            <svg width="0.9em" height="0.9em" viewBox="0 0 24 24" fill="none">
+              <polygon points="0,0 24,12 0,24" fill="#2F9E6A" />
+            </svg>
+          </a>
+        </div>
+        <div class="block text-slate text-sm space-y-3">
+          <p><strong>Intelligence Service Building</strong> — Frameworks, lessons, what works.</p>
+          <p><strong>Automation in Professional Services</strong> — Building invisible automation.</p>
+          <p><strong>Malaysian Market Insights</strong> — Credit, brand risk, operating realities.</p>
+          <p><strong>Building Products for Intermediaries</strong> — Design for accountants, lawyers, cosecs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .text-mono {
+    @apply font-mono text-xs font-medium tracking-widest uppercase;
+  }
+
+  .rounded-button {
+    @apply transition-all duration-150;
+  }
+
+  .rounded-pill {
+    @apply rounded-full;
+  }
+
+  .rounded-card {
+    @apply rounded-[12px];
+  }
+
+  .border-line {
+    @apply border-[color:var(--line)];
+  }
+</style>

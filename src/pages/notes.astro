@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const notes = (await getCollection('notes')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const pillars = [
+  { id: 'all', label: 'All' },
+  { id: 'intelligence-service-building', label: 'Intelligence Service Building' },
+  { id: 'automation-professional-services', label: 'Automation in Professional Services' },
+  { id: 'malaysian-market-insights', label: 'Malaysian Market Insights' },
+  { id: 'products-for-intermediaries', label: 'Building Products for Intermediaries' },
+];
+---
+
+<Layout title="Notes — Labproof" description="Observations on building intelligence services, automation in professional services, and doing business in Malaysia.">
+  <Header />
+
+  <div class="pt-[120px] pb-20 px-6 md:px-20">
+    <div class="max-w-container mx-auto">
+      <!-- Page Header -->
+      <div class="mb-12">
+        <a href="/" class="inline-block mb-6 font-mono text-xs font-medium tracking-widest uppercase text-green hover:text-ink transition-colors">
+          ← Back home
+        </a>
+        <h1 class="font-newsreader text-4xl md:text-5xl font-medium tracking-tight mb-4">
+          Notes
+        </h1>
+        <p class="text-lg text-slate max-w-2xl leading-relaxed">
+          Observations on building intelligence services, automation in professional services, and doing business in Malaysia. Direct thoughts from the field.
+        </p>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex flex-wrap gap-2 mb-12 pb-8 border-b border-line">
+        {pillars.map((pillar) => (
+          <button
+            data-filter={pillar.id}
+            class:list={[
+              'px-4 py-2 rounded-pill text-mono text-xs font-medium transition-all duration-150 cursor-pointer',
+              pillar.id === 'all'
+                ? 'bg-ink text-paper'
+                : 'border-2 border-slate text-slate hover:border-ink hover:text-ink',
+              'filter-btn'
+            ]}
+          >
+            {pillar.label}
+          </button>
+        ))}
+      </div>
+
+      <!-- Notes List -->
+      <div class="space-y-6" id="notes-list">
+        {notes.map((note) => (
+          <a
+            href={`/notes/${note.slug}`}
+            data-pillar={note.data.pillar}
+            class:list={[
+              'block p-6 bg-card rounded-card border border-line hover:shadow-card-hover hover:-translate-y-1 transition-all duration-150 group note-card'
+            ]}
+          >
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <div class="flex-1">
+                <h3 class="font-newsreader text-xl font-medium text-ink mb-1 group-hover:text-green transition-colors">
+                  {note.data.title}
+                </h3>
+                <p class="text-mono text-slate text-xs">
+                  {pillars.find(p => p.id === note.data.pillar)?.label}
+                </p>
+              </div>
+              <span class="text-mono text-slate text-xs whitespace-nowrap">
+                {note.data.date.toLocaleDateString('en-MY', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </span>
+            </div>
+            <p class="text-slate leading-relaxed">
+              {note.data.excerpt}
+            </p>
+            {note.data.readTime && (
+              <p class="text-mono text-slate text-xs mt-3">
+                {note.data.readTime} min read
+              </p>
+            )}
+          </a>
+        ))}
+      </div>
+
+      <!-- Empty State -->
+      <div class="hidden text-center py-20" id="empty-state">
+        <p class="text-slate text-lg">
+          No notes in this category yet.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const noteCards = document.querySelectorAll('.note-card');
+    const emptyState = document.getElementById('empty-state');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+
+        // Update active button
+        filterButtons.forEach((btn) => btn.classList.remove('bg-ink', 'text-paper'));
+        filterButtons.forEach((btn) => btn.classList.add('border-2', 'border-slate', 'text-slate'));
+        button.classList.remove('border-2', 'border-slate', 'text-slate');
+        button.classList.add('bg-ink', 'text-paper');
+
+        // Filter notes
+        let visibleCount = 0;
+        noteCards.forEach((card) => {
+          if (filter === 'all' || card.dataset.pillar === filter) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        // Show/hide empty state
+        if (visibleCount === 0) {
+          emptyState?.classList.remove('hidden');
+        } else {
+          emptyState?.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</Layout>
+
+<style>
+  .rounded-pill {
+    @apply rounded-full;
+  }
+
+  .rounded-card {
+    @apply rounded-[12px];
+  }
+
+  .text-mono {
+    @apply font-mono font-medium tracking-widest uppercase;
+  }
+
+  .shadow-card-hover {
+    box-shadow: 0 16px 38px rgba(26, 34, 29, 0.15);
+  }
+</style>

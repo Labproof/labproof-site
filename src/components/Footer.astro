@@ -1,0 +1,50 @@
+---
+const year = 2026;
+---
+
+<footer class="bg-ink-2 text-paper py-16 px-6 md:px-20">
+  <div class="max-w-container mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-12 mb-12">
+      <!-- Logo & Tagline -->
+      <div>
+        <a href="/" class="inline-block hover:opacity-80 transition-opacity">
+          <img
+            src="/labproof-wordmark-white.png"
+            alt="Labproof"
+            class="h-11 w-auto mb-3"
+            width="4885"
+            height="1426"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+        <p class="text-sm text-green-bright">proof that it works.</p>
+      </div>
+
+      <!-- Site Links -->
+      <div>
+        <h3 class="font-mono text-xs mb-4 opacity-70 tracking-widest uppercase">Site</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="hover:text-green-bright transition-colors">Home</a></li>
+          <li><a href="/#projects" class="hover:text-green-bright transition-colors">Projects</a></li>
+          <li><a href="/notes" class="hover:text-green-bright transition-colors">Notes</a></li>
+        </ul>
+      </div>
+
+      <!-- Elsewhere Links -->
+      <div>
+        <h3 class="font-mono text-xs mb-4 opacity-70 tracking-widest uppercase">Elsewhere</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://github.com/Labproof" class="hover:text-green-bright transition-colors">GitHub</a></li>
+          <li><a href="mailto:hello@labproof.tech" class="hover:text-green-bright transition-colors">Email</a></li>
+          <li><a href="https://labproof.tech" class="hover:text-green-bright transition-colors">labproof.tech</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-ink pt-6 text-center text-sm text-slate">
+      <p>© {year} Labproof</p>
+    </div>
+  </div>
+</footer>
