@@ -2,6 +2,8 @@
 
 Static marketing site for **labproof.tech** (Astro 4 + Tailwind), already live in production.
 
+> **Session protocol:** Read **`STATUS.md`** first to catch up on current state and where work left off. Before finishing a session, update it — refresh "Current state", add a dated Log entry, and adjust "Open threads".
+
 ## Stack & structure
 - Astro static output (`output: 'static'`) + Tailwind CSS.
 - Pages in `src/pages/`, components in `src/components/`, note articles in `src/content/notes/` (Markdown content collection).
