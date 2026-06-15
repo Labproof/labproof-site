@@ -5,6 +5,19 @@ import Footer from '../components/Footer.astro';
 
 const title = 'Labproof — live & demo projects';
 const description = 'A home for live and demo projects, mostly AI. Open and run them yourself — proof that it works.';
+
+// Add new projects here — newest first. type: 'live' | 'demo'.
+const projects = [
+  {
+    title: 'KOVR',
+    blurb: "Family. Covered. — keep your family's insurance and emergency numbers in one place.",
+    tag: 'Insurance · Family',
+    type: 'live',
+    href: '/kovr',
+    logo: '/img/kovr-icon.svg',
+    alt: 'KOVR — family insurance and emergency info',
+  },
+];
 ---
 
 <Layout title={title} description={description}>
@@ -105,17 +118,94 @@ const description = 'A home for live and demo projects, mostly AI. Open and run 
         </div>
       </div>
 
-      <!-- Empty State -->
-      <div class="text-center py-20">
-        <p class="text-xl text-slate mb-4">
-          Nothing running here yet.
-        </p>
-        <p class="text-sm text-slate">
-          Check back soon.
-        </p>
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+        {projects.map((project) => (
+          <a
+            href={project.href}
+            data-type={project.type}
+            class="project-card group block bg-card rounded-card border border-line overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-150"
+          >
+            <div class="relative aspect-[16/10] overflow-hidden bg-paper-2 flex items-center justify-center">
+              {project.logo ? (
+                <div class="flex items-center gap-3">
+                  <img
+                    src={project.logo}
+                    alt=""
+                    class="h-14 w-14"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="font-sans text-4xl font-bold tracking-tight text-[#0D1B4B]">{project.title}</span>
+                </div>
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.alt}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+              <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-paper/90 backdrop-blur px-2.5 py-1 rounded-full font-mono text-[10px] font-medium tracking-widest uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-green"></span>
+                {project.type === 'live' ? 'Live' : 'Demo'}
+              </span>
+              <span class="absolute bottom-3 right-3 inline-flex items-center gap-1 bg-ink text-paper px-3 py-1.5 rounded-full font-mono text-[10px] font-medium tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+                Run
+                <svg width="0.7em" height="0.7em" viewBox="0 0 24 24" fill="none">
+                  <polygon points="0,0 24,12 0,24" fill="#2F9E6A" />
+                </svg>
+              </span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-newsreader text-xl font-medium mb-1 group-hover:text-green transition-colors">
+                {project.title}
+              </h3>
+              <p class="text-slate text-sm leading-relaxed mb-3">
+                {project.blurb}
+              </p>
+              <p class="font-mono text-[10px] font-medium tracking-widest uppercase text-slate">
+                {project.tag}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Filtered-empty state -->
+      <div class="hidden text-center py-20" id="projects-empty">
+        <p class="text-lg text-slate">No projects in this category yet.</p>
       </div>
     </div>
   </section>
+
+  <script>
+    const pButtons = document.querySelectorAll('#projects [data-filter]');
+    const pCards = document.querySelectorAll('.project-card');
+    const pEmpty = document.getElementById('projects-empty');
+
+    pButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        pButtons.forEach((b) => {
+          b.classList.remove('bg-ink', 'text-paper');
+          b.classList.add('border-2', 'border-slate', 'text-slate');
+        });
+        btn.classList.add('bg-ink', 'text-paper');
+        btn.classList.remove('border-2', 'border-slate', 'text-slate');
+
+        let visible = 0;
+        pCards.forEach((card) => {
+          const show = filter === 'all' || card.getAttribute('data-type') === filter;
+          card.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        pEmpty?.classList.toggle('hidden', visible !== 0);
+      });
+    });
+  </script>
 
   <!-- Notes CTA Section -->
   <section class="py-20 md:py-28 px-6 md:px-20 bg-paper-2">
