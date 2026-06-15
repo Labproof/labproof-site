@@ -4,6 +4,12 @@ Static marketing site for **labproof.tech** (Astro 4 + Tailwind), already live i
 
 > **Session protocol:** Read **`STATUS.md`** first to catch up on current state and where work left off. Before finishing a session, update it — refresh "Current state", add a dated Log entry, and adjust "Open threads".
 
+## Architecture — how it connects
+`GitHub repo` (source) → built with Astro → **`Deploy-VPS.ps1`** ships `dist/` to **`/var/www/labproof`** on the **Hostinger VPS** (`187.77.143.45`) → served by **nginx** over HTTPS. The domain **labproof.tech** (DNS managed in Hostinger) has an **A record → 187.77.143.45**, so the repo, the server, and the URL are one chain:
+`github.com/Labproof/labproof-site → Hostinger VPS → https://labproof.tech`
+
+**Credentials live OUTSIDE the repo (by design):** the VPS SSH key (`%USERPROFILE%\.ssh\labproof_vps`), `gh` auth, and the Hostinger API token are **not** committed. Any session can read and understand everything here, but to actually **deploy** it must have those provisioned in its own environment — a fresh/Cowork clone cannot deploy until then.
+
 ## Stack & structure
 - Astro static output (`output: 'static'`) + Tailwind CSS.
 - Pages in `src/pages/`, components in `src/components/`, note articles in `src/content/notes/` (Markdown content collection).
