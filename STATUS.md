@@ -5,7 +5,7 @@ Living status for the **labproof.tech** site.
 
 ## Current state — 2026-06-15
 - **Live:** https://labproof.tech — Hostinger VPS (Ubuntu + nginx), HTTPS via Let's Encrypt.
-- **Repo:** https://github.com/Labproof/labproof-site (public) · **Local:** `C:\Work\Active Projects\labproof-site`
+- **Repo:** https://github.com/Labproof/labproof-site (public) · **Local:** `C:\Work\Active Projects\Labproof Tech Website\labproof-site`
 - **Pages:** Home (hero · intro strip · Projects · Notes CTA · footer) and Notes (index + 4 articles). About section removed.
 - **Mobile:** hamburger menu, stacked hero/About images, responsive throughout.
 - **Projects:** **KOVR** card is live — links to `/kovr`, logo at `/img/kovr-icon.svg`. Live/Demo filters work.
@@ -13,6 +13,8 @@ Living status for the **labproof.tech** site.
 
 ## Log (newest first)
 ### 2026-06-15
+- **Consolidated folders:** repo moved into `Labproof Tech Website\labproof-site`; original design files tucked into `Labproof Tech Website\design-bundle\`; empty `labproof-astro` deleted. Updated path references (preview launch.json, this file, memory).
+- Added **STATUS.md** (session continuity) + `docs/session-continuity.md` (reusable setup instructions for other projects).
 - Added **KOVR** project card. Fixed icon not loading — `/kovr-icon.svg` collided with nginx `location /kovr`; moved to `/img/kovr-icon.svg`.
 - Documented multi-session VPS/route coordination rules in `CLAUDE.md`.
 - Created GitHub org **Labproof** + repo; pushed site. Installed gh + Git; scrubbed Hostinger API token from tracked files.
