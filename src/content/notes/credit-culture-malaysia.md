@@ -3,6 +3,11 @@ title: Credit Culture in Malaysia — What Actually Works
 date: 2026-06-12
 pillar: malaysian-market-insights
 excerpt: "Credit risk in Malaysia is structural, not accidental. Collections-first mindset. Trust through disclosure."
+keyPoints:
+  - "Malaysian credit risk is structural; payment is cultural, not legal — a perfect contract means little without consequences."
+  - "Win on speed and visibility: call when an invoice ages, not six months later."
+  - "Disclose problems early. Surprise breaks relationships; early honesty keeps them."
+  - "Credit intelligence should predict before you extend credit, not just report after the fact."
 readTime: 5
 ---
 

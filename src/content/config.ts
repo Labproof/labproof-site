@@ -12,6 +12,7 @@ const notesCollection = defineCollection({
       'products-for-intermediaries'
     ]),
     excerpt: z.string(),
+    keyPoints: z.array(z.string()).optional(),
     readTime: z.number().optional(),
   }),
 });

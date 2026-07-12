@@ -48,6 +48,21 @@ const pillarLabels = {
       <!-- Divider -->
       <div class="border-t border-line my-8"></div>
 
+      <!-- Key points summary -->
+      {note.data.keyPoints && note.data.keyPoints.length > 0 && (
+        <aside class="mb-10 rounded-card border border-line bg-paper-2 p-6 md:p-7">
+          <p class="text-mono text-green text-xs mb-4">Key points</p>
+          <ul class="space-y-2.5">
+            {note.data.keyPoints.map((point) => (
+              <li class="flex gap-3 text-ink leading-relaxed">
+                <span class="mt-2 inline-block w-1.5 h-1.5 rounded-full bg-green shrink-0"></span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
+
       <!-- Content -->
       <div class="prose prose-invert max-w-none mb-12">
         <Content />

@@ -3,6 +3,10 @@ title: Why Intermediaries Win
 date: 2026-06-15
 pillar: intelligence-service-building
 excerpt: "Direct-to-client intelligence services are hard. Intermediaries — accountants, lawyers, corporate secretaries — already have trust and motion. Build for them."
+keyPoints:
+  - "Intermediaries already have trust, billing, and the client list — build for them instead of selling direct."
+  - "Trust transfers free, pricing stays flexible, distribution is instant, and you stay invisible."
+  - "It only works if the service genuinely works — and if you're fine not being the face of it."
 readTime: 4
 ---
 

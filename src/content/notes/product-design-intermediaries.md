@@ -3,6 +3,10 @@ title: Designing Products for Intermediaries — Three Rules
 date: 2026-06-10
 pillar: products-for-intermediaries
 excerpt: "Intermediaries (accountants, lawyers) have existing workflows. Your product must slot in, not replace. Three design rules."
+keyPoints:
+  - "Output format first: design what the intermediary delivers to their client, then work backward to the automation."
+  - "No new logins. Embed in their existing tools or accept churn."
+  - "Defensible opacity: they must be able to present it as their own work and stand behind it under scrutiny."
 readTime: 4
 ---
 

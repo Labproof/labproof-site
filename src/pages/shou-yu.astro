@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const principles = [
+  {
+    cn: '不急',
+    py: 'bù jí',
+    en: 'Do not rush',
+    note: 'Panic and urgency should never drive a decision. Calm creates space, and space is reserve.',
+  },
+  {
+    cn: '不困',
+    py: 'bù kùn',
+    en: 'Do not become trapped',
+    note: 'Stay clear. Always keep a way forward — never let a situation close every door but one.',
+  },
+  {
+    cn: '不败',
+    py: 'bù bài',
+    en: 'Ensure you do not lose',
+    note: 'It is not about winning. It is about never placing yourself where you can be forced into losing — keep dignity and options intact, even in withdrawal.',
+  },
+  {
+    cn: '不尽',
+    py: 'bù jìn',
+    en: 'Never go all in',
+    note: 'In everything you do, hold something back. Enjoy without exhausting. Always keep a reserve.',
+  },
+];
+---
+
+<Layout
+  title="守余 — A Family Principle"
+  description="守余 (Shǒu Yú) — Guard the Reserve. The family principle that guides how we decide, withdraw, and protect what matters."
+>
+  <Header />
+
+  <main class="pt-[120px] pb-24 px-6 md:px-20">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Back link -->
+      <a
+        href="/"
+        class="inline-block mb-12 font-mono text-xs font-medium tracking-widest uppercase text-green hover:text-ink transition-colors"
+      >
+        ← Back home
+      </a>
+
+      <!-- Seal script (top) -->
+      <figure class="reveal text-center mb-10">
+        <img
+          src="/shou-yu-seal.png"
+          alt="守余 — Shǒu Yú — written in seal script"
+          class="mx-auto h-44 md:h-56 w-auto"
+          onerror="this.closest('figure').style.display='none'"
+        />
+        <figcaption class="mt-4 font-mono text-[11px] tracking-[0.25em] uppercase text-slate">
+          篆書 · seal script
+        </figcaption>
+      </figure>
+
+      <!-- Eyebrow -->
+      <p class="reveal font-mono text-xs font-medium tracking-widest uppercase text-slate mb-6">
+        家道 · jiā dào · The family way
+      </p>
+
+      <!-- Hero -->
+      <section class="reveal text-center mb-16">
+        <h1 class="hero-cn text-ink leading-none mb-6">守余</h1>
+        <p class="font-mono text-sm tracking-[0.25em] uppercase text-green mb-2">Shǒu Yú</p>
+        <p class="font-newsreader text-2xl md:text-3xl text-ink font-medium">Guard the Reserve</p>
+      </section>
+
+      <!-- Intro -->
+      <section class="reveal mb-20">
+        <p class="font-newsreader text-xl md:text-2xl leading-relaxed text-ink">
+          This is our 家道 — a family principle meant to guide you through life.
+          Not a rule to memorise, but a way of deciding: in calm and in trouble,
+          in what you take on and what you let go. At its heart is one discipline —
+          never use everything up. In every choice, keep something
+          <span class="text-green">余</span> — in reserve.
+        </p>
+      </section>
+
+      <!-- Core statement -->
+      <section class="reveal mb-20">
+        <div class="rounded-card bg-card border border-line shadow-sm p-8 md:p-12 text-center">
+          <p class="statement-cn text-ink mb-3">守余之道，在于不急、不困、不败、不尽。</p>
+          <p class="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-green mb-4">
+            shǒu yú zhī dào, zài yú bù jí, bù kùn, bù bài, bù jìn
+          </p>
+          <p class="text-slate text-base leading-relaxed max-w-xl mx-auto">
+            The way of guarding the reserve lies in not rushing, not being trapped,
+            not losing, and not exhausting.
+          </p>
+        </div>
+      </section>
+
+      <!-- The four principles -->
+      <section class="mb-20">
+        <h2 class="reveal font-mono text-xs font-medium tracking-widest uppercase text-slate mb-8 text-center">
+          The Four Principles
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-5">
+          {principles.map((p) => (
+            <div class="reveal group rounded-card bg-card border border-line p-7 transition-all duration-200 hover:shadow-card-hover hover:-translate-y-1">
+              <div class="flex items-baseline gap-4 mb-3">
+                <span class="principle-cn text-ink group-hover:text-green transition-colors">{p.cn}</span>
+                <span class="font-mono text-xs tracking-widest uppercase text-green">{p.py}</span>
+              </div>
+              <p class="font-newsreader text-lg text-ink font-medium mb-2">{p.en}</p>
+              <p class="text-slate text-sm leading-relaxed">{p.note}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Inner compass -->
+      <section class="reveal mb-20 text-center">
+        <p class="font-mono text-xs font-medium tracking-widest uppercase text-slate mb-5">
+          The Inner Question
+        </p>
+        <p class="compass-cn text-ink mb-4">若事变于明日，我尚有余否？</p>
+        <p class="font-newsreader text-xl text-ink italic">
+          If everything changed tomorrow, would I still have reserve?
+        </p>
+      </section>
+
+      <!-- Closing / protection -->
+      <section class="reveal">
+        <div class="rounded-card bg-ink-2 text-paper p-10 md:p-14 text-center">
+          <p class="font-newsreader text-2xl md:text-3xl leading-snug mb-4">
+            This was never about holding back from life.
+          </p>
+          <p class="text-green-bright font-newsreader text-2xl md:text-3xl leading-snug">
+            It is to make sure you are all protected.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Chinese characters — bold, modern, clean */
+  .hero-cn {
+    font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+    font-weight: 700;
+    font-size: clamp(96px, 22vw, 160px);
+    letter-spacing: 0.08em;
+  }
+
+  .statement-cn {
+    font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+    font-weight: 600;
+    font-size: clamp(20px, 3.4vw, 32px);
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+  }
+
+  /* Keep the core statement on a single line from tablet up */
+  @media (min-width: 768px) {
+    .statement-cn {
+      white-space: nowrap;
+    }
+  }
+
+  .principle-cn {
+    font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 0.06em;
+  }
+
+  .compass-cn {
+    font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+    font-weight: 600;
+    font-size: clamp(20px, 4.5vw, 30px);
+    letter-spacing: 0.04em;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .shadow-sm {
+    box-shadow: 0 1px 3px rgba(26, 34, 29, 0.08);
+  }
+</style>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+  items.forEach((el) => io.observe(el));
+</script>

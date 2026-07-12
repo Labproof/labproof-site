@@ -3,6 +3,10 @@ title: Automation Stays Invisible
 date: 2026-06-14
 pillar: automation-professional-services
 excerpt: "The best automation in professional services doesn't get noticed. The client sees the insight. They don't see the agent."
+keyPoints:
+  - "The client should see the insight, not the agent — invisible automation is a feature, not a limitation."
+  - "Visible 'AI-powered' tooling breeds distrust, kills the intermediary's margin, and invites needless liability questions."
+  - "Build the pipes and leave no footprints. The output is the product."
 readTime: 3
 ---
 
