@@ -3,15 +3,26 @@
 Living status for the **labproof.tech** site.
 **Read this first each session to catch up; update it before you finish** (refresh "Current state", add a dated Log entry, adjust "Open threads"). Setup/deploy rules live in `CLAUDE.md`.
 
-## Current state — 2026-06-15
+## Current state — 2026-07-13
 - **Live:** https://labproof.tech — Hostinger VPS (Ubuntu + nginx), HTTPS via Let's Encrypt.
 - **Repo:** https://github.com/Labproof/labproof-site (public) · **Local:** `C:\Work\Active Projects\Labproof Tech Website\labproof-site`
 - **Pages:** Home (hero · intro strip · Projects · Notes CTA · footer) and Notes (index + 4 articles). About section removed.
 - **Mobile:** hamburger menu, stacked hero/About images, responsive throughout.
-- **Projects:** **BLUEOS** (→ `/blueos`, card image `/img/blueos-card.svg`), **Stock Tracker (HKSE)** (→ `/stocktracker`, card image `/img/stocktracker-card.svg`) and **KOVR** (→ `/kovr`, logo `/img/kovr-icon.svg`) cards live. Live/Demo filters work.
+- **Projects:** **BLUEOS** (→ `/blueos`, card image `/img/blueos-card.svg`), **THE EXCHANGE** (→ `/stocktracker`, card image `/img/stocktracker-card.svg`, tag `HKSE · KLSE` — consolidated from the single-market "Stock Tracker (HKSE)" card) and **KOVR** (→ `/kovr`, logo `/img/kovr-icon.svg`) cards live. Live/Demo filters work.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
+### 2026-07-13 (third entry)
+Consolidated the **Stock Tracker (HKSE)** card to **THE EXCHANGE** (tag `HKSE · KLSE`) —
+the Stock Tracker project now positions itself as a multi-market platform (HKSE + a new
+KLSE/Bursa Malaysia sibling live same-day at `/stocktracker-my`, see `..\Stock Tracker MY\`),
+and the linked landing page (`/stocktracker`) was rewritten as the platform hub explaining
+THE EXCHANGE before branching to each market. Card image text updated (`THE EXCHANGE` /
+`HKSE · KLSE`); href/route unchanged. First attempt used two grouped cards (one per market)
+— Ron corrected to a single consolidated card. Built, deployed via `Deploy-VPS.ps1`,
+live-verified (card + linked hub page + both market cross-links), committed + pushed
+(`66c8cc3`).
+
 ### 2026-07-13 (second entry)
 - Added **BLUEOS** project card (newest-first, above Stock Tracker) → links to `/blueos`,
   the new platform landing page served by the carwash app (see its project folder
@@ -45,4 +56,6 @@ Living status for the **labproof.tech** site.
 - **Deploy coordination (deferred, discussed not started):** multiple Claude sessions deploy to the same VPS and have clobbered each other's SSH `authorized_keys`. Plan: a `manifest` (project → repo → VPS path → URL → local folder) + a manifest-driven **deploy agent** (rsync, append-safe key, deploy lock, stamp deployed commit) + a read-only **dashboard**. Possibly an Obsidian human-knowledge layer on top.
 - **Deploy discipline to adopt:** *commit → deploy that exact commit → stamp the SHA on the server*, so local always provably matches live.
 - **KOVR thumbnail** uses the app icon; swap for a custom thumbnail if wanted.
-- **Security:** rotate the Hostinger API token when convenient (it appeared in working files/chat this session).
+- ~~Security: rotate the Hostinger API token~~ — resolved 2026-07-13 per the area
+  `CLAUDE.md`: token deleted in hPanel (no replacement; nothing uses the API), VPS root
+  password already rotated 2026-07-05.
