@@ -8,7 +8,7 @@
   </g>
   <text x="400" y="318" text-anchor="middle" fill="#F6F9F7"
         font-family="Arial, Helvetica, sans-serif" font-style="italic" font-weight="800"
-        font-size="58" letter-spacing="-1.5">STOCK TRACKER</text>
+        font-size="52" letter-spacing="-1.5">THE EXCHANGE</text>
   <text x="400" y="368" text-anchor="middle" fill="#1DBE68"
-        font-family="Consolas, Menlo, monospace" font-size="22" letter-spacing="8">HKSE</text>
+        font-family="Consolas, Menlo, monospace" font-size="20" letter-spacing="7">HKSE · KLSE</text>
 </svg>
