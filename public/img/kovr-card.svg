@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="KOVR — Family. Covered.">
+  <!-- KOVR project card (KOVR Brand Guide v1.0 §07 — OG/listing template):
+       navy field, blue radial glow top-right, mark + wordmark, tagline in blue-light -->
+  <defs>
+    <radialGradient id="kovr-glow" cx="100%" cy="0%" r="115%">
+      <stop offset="0%" stop-color="#4A7ADB" stop-opacity="0.34"/>
+      <stop offset="60%" stop-color="#4A7ADB" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="#0D1B4B"/>
+  <rect width="800" height="500" fill="url(#kovr-glow)"/>
+
+  <!-- Shield-Check mark -->
+  <g transform="translate(212,164) scale(0.92)">
+    <path d="M50 6 L90 20 L90 60 Q90 97 50 116 Q10 97 10 60 L10 20 Z" fill="#F4F1EC"/>
+    <path d="M31 61 L44 75 L70 43" fill="none" stroke="#0D1B4B" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="336" y="254" font-family="'Hanken Grotesk',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"
+        font-size="92" font-weight="900" letter-spacing="5" fill="#F4F1EC">KOVR</text>
+
+  <!-- Tagline -->
+  <text x="400" y="336" text-anchor="middle" font-family="'Hanken Grotesk',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"
+        font-size="25" font-weight="700" letter-spacing="2" fill="#6B9AEB">Family. Covered.</text>
+</svg>

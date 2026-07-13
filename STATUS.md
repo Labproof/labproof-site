@@ -12,6 +12,13 @@ Living status for the **labproof.tech** site.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
+### 2026-07-13 (fifth entry)
+KOVR card redesigned as a full-bleed 16:10 brand SVG (`/img/kovr-card.svg` — navy field,
+blue radial glow, Shield-Check mark + wordmark, "Family. Covered." tagline; per the guide's
+OG/listing template), replacing the `logo` icon+text lockup so all three project cards now
+use the same `image` pattern. `kovr-icon.svg` kept for other uses. Built, deployed,
+live-verified (SVG 200, referenced from home).
+
 ### 2026-07-13 (fourth entry)
 KOVR card refreshed per the new **KOVR Brand Guide v1.0** (in `..\..\KOVR\brand\`):
 `/img/kovr-icon.svg` replaced with the new Shield-Check mark (navy field, cream shield,
