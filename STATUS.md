@@ -8,10 +8,27 @@ Living status for the **labproof.tech** site.
 - **Repo:** https://github.com/Labproof/labproof-site (public) · **Local:** `C:\Work\Active Projects\Labproof Tech Website\labproof-site`
 - **Pages:** Home (hero · intro strip · Projects · Notes CTA · footer) and Notes (index + 4 articles). About section removed.
 - **Mobile:** hamburger menu, stacked hero/About images, responsive throughout.
-- **Projects:** **KOVR** card is live — links to `/kovr`, logo at `/img/kovr-icon.svg`. Live/Demo filters work.
+- **Projects:** **BLUEOS** (→ `/blueos`, card image `/img/blueos-card.svg`), **Stock Tracker (HKSE)** (→ `/stocktracker`, card image `/img/stocktracker-card.svg`) and **KOVR** (→ `/kovr`, logo `/img/kovr-icon.svg`) cards live. Live/Demo filters work.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
+### 2026-07-13 (second entry)
+- Added **BLUEOS** project card (newest-first, above Stock Tracker) → links to `/blueos`,
+  the new platform landing page served by the carwash app (see its project folder
+  `..\..\Car Wash WhatsApp Booking\`, decision #33). Card = 16:10 brand SVG
+  (`/img/blueos-card.svg`, navy gradient + water-O mark + wordmark), same `image`-field
+  route as the Stock Tracker card. Built, deployed via `Deploy-VPS.ps1`, verified live
+  (card renders first in the grid; asset 200).
+
+### 2026-07-13
+- Added **Stock Tracker (HKSE)** project card (newest-first, above KOVR) → links to
+  `/stocktracker` (the public multi-user tracker deployed 2026-07-12; see its project
+  folder `..\..\Stock Tracker\`). Card uses a 16:10 brand SVG (`/img/stocktracker-card.svg`,
+  forest tile + stripe mark + wordmark) via the `image` field — the `logo` lockup path has
+  KOVR's navy hardcoded, so a full-bleed image was the no-template-change route. Built,
+  deployed via `Deploy-VPS.ps1`, live-verified (card + SVG 200), committed + pushed
+  (`d0835ff`).
+
 ### 2026-06-15
 - **Consolidated folders:** repo moved into `Labproof Tech Website\labproof-site`; original design files tucked into `Labproof Tech Website\design-bundle\`; empty `labproof-astro` deleted. Updated path references (preview launch.json, this file, memory).
 - Added **STATUS.md** (session continuity) + `docs/session-continuity.md` (reusable setup instructions for other projects).
