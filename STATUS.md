@@ -12,6 +12,14 @@ Living status for the **labproof.tech** site.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
+### 2026-07-13 (fourth entry)
+KOVR card refreshed per the new **KOVR Brand Guide v1.0** (in `..\..\KOVR\brand\`):
+`/img/kovr-icon.svg` replaced with the new Shield-Check mark (navy field, cream shield,
+blue check), blurb rewritten to the brand one-liner (Emergency Card lead), card wordmark
+tuned (`font-black tracking-[0.03em]` — applies to any `logo`-field card). KOVR side
+shipped too: /kovr now opens a full-width branded landing page for logged-out visitors.
+Built, deployed via `Deploy-VPS.ps1`, live-verified (new copy + icon serving).
+
 ### 2026-07-13 (third entry)
 Consolidated the **Stock Tracker (HKSE)** card to **THE EXCHANGE** (tag `HKSE · KLSE`) —
 the Stock Tracker project now positions itself as a multi-market platform (HKSE + a new
