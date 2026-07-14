@@ -3,15 +3,24 @@
 Living status for the **labproof.tech** site.
 **Read this first each session to catch up; update it before you finish** (refresh "Current state", add a dated Log entry, adjust "Open threads"). Setup/deploy rules live in `CLAUDE.md`.
 
-## Current state — 2026-07-13
+## Current state — 2026-07-14
 - **Live:** https://labproof.tech — Hostinger VPS (Ubuntu + nginx), HTTPS via Let's Encrypt.
 - **Repo:** https://github.com/Labproof/labproof-site (public) · **Local:** `C:\Work\Active Projects\Labproof Tech Website\labproof-site`
-- **Pages:** Home (hero · intro strip · Projects · Notes CTA · footer) and Notes (index + 4 articles). About section removed.
+- **Pages:** Home (hero · intro strip · Projects · Notes CTA · footer) and Notes (index + 8 articles). About section removed.
 - **Mobile:** hamburger menu, stacked hero/About images, responsive throughout.
 - **Projects:** **BLUEOS** (→ `/blueos`, card image `/img/blueos-card.svg`), **THE EXCHANGE** (→ `/stocktracker`, card image `/img/stocktracker-card.svg`, tag `HKSE · KLSE` — consolidated from the single-market "Stock Tracker (HKSE)" card) and **KOVR** (→ `/kovr`, logo `/img/kovr-icon.svg`) cards live. Live/Demo filters work.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
+### 2026-07-14
+Two new notes published (both `automation-professional-services` pillar, a builder's-diary
+angle Ron chose over credit/intermediary topics this round): **The Folder Is the Memory**
+(`folder-is-the-memory` — STATUS-file session-continuity method, generalized) and
+**The 2-Hour Product** (`two-hour-product` — one-client software, build-to-throw-away,
+bottleneck moved to selection + verification). Notes count now 8 (STATUS previously said 4 —
+was stale; 6 existed before this session). Committed + pushed (`9693a66`), deployed via
+`Deploy-VPS.ps1`, live-verified (both pages 200 and listed on /notes).
+
 ### 2026-07-13 (fifth entry)
 KOVR card redesigned as a full-bleed 16:10 brand SVG (`/img/kovr-card.svg` — navy field,
 blue radial glow, Shield-Check mark + wordmark, "Family. Covered." tagline; per the guide's
