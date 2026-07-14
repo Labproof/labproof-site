@@ -8,10 +8,18 @@ Living status for the **labproof.tech** site.
 - **Repo:** https://github.com/Labproof/labproof-site (public) · **Local:** `C:\Work\Active Projects\Labproof Tech Website\labproof-site`
 - **Pages:** Home (hero · intro strip · Projects · Notes CTA · footer) and Notes (index + 8 articles). About section removed.
 - **Mobile:** hamburger menu, stacked hero/About images, responsive throughout.
-- **Projects:** **BLUEOS** (→ `/blueos`, card image `/img/blueos-card.svg`), **THE EXCHANGE** (→ `/stocktracker`, card image `/img/stocktracker-card.svg`, tag `HKSE · KLSE` — consolidated from the single-market "Stock Tracker (HKSE)" card) and **KOVR** (→ `/kovr`, logo `/img/kovr-icon.svg`) cards live. Live/Demo filters work.
+- **Projects:** **OUTLINK** (→ https://outlink.my, card image `/img/outlink-card.svg`, type `live`), **BLUEOS** (→ `/blueos`, card image `/img/blueos-card.svg`), **THE EXCHANGE** (→ `/stocktracker`, card image `/img/stocktracker-card.svg`, tag `HKSE · KLSE` — consolidated from the single-market "Stock Tracker (HKSE)" card) and **KOVR** (→ `/kovr`, card image `/img/kovr-card.svg`, type `demo` — switched from live 2026-07-14). Live/Demo filters work.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
+### 2026-07-14 (second entry)
+Shipped the **OUTLINK** project card (newest-first, above BLUEOS) — link-in-bio + dynamic
+QR platform for Kraken's clients, external href https://outlink.my, card SVG
+`/img/outlink-card.svg`. The card had been drafted uncommitted in an earlier afternoon
+session (built but never deployed — caught by the drift check). Also switched the **KOVR
+card to `demo`** (Ron's call — was `live`). Committed + pushed (`6ae6708`), deployed via
+`Deploy-VPS.ps1`, live-verified (OUTLINK card renders, SVG 200, KOVR shows Demo badge).
+
 ### 2026-07-14
 Two new notes published (both `automation-professional-services` pillar, a builder's-diary
 angle Ron chose over credit/intermediary topics this round): **The Folder Is the Memory**
