@@ -3,7 +3,18 @@
 Living status for the **labproof.tech** site.
 **Read this first each session to catch up; update it before you finish** (refresh "Current state", add a dated Log entry, adjust "Open threads"). Setup/deploy rules live in `CLAUDE.md`.
 
-## Current state — 2026-07-14
+## Current state — 2026-07-15
+- **THE EXCHANGE card fixed, not yet deployed:** as part of the same-session Exchange Brand
+  System v2.0 rollout (see HKSE Tracker's STATUS.md for full context), `stocktracker-card.svg`'s
+  mark colors were wrong — reversed order and off-spec hexes (`#5CE09A`/`#1DBE68`/`#12A356`,
+  lightest bar on top). Fixed to the spec's actual dark-theme green ramp `#17AE5E`/`#2ED47A`/
+  `#54EE9A` (darkest on top, matching every other rendering of the mark across the three tracker
+  apps). `index.astro`'s card entry (title/blurb/tag/href) already read correctly — no copy
+  change needed. `npm run build` clean; confirmed the built `dist/img/stocktracker-card.svg`
+  carries the fix. **Not committed/deployed yet** — holding for Ron's go-ahead alongside the
+  tracker apps' rebrand.
+
+## Current state — 2026-07-14 (superseded by the entry above)
 - **Live:** https://labproof.tech — Hostinger VPS (Ubuntu + nginx), HTTPS via Let's Encrypt.
 - **Repo:** https://github.com/Labproof/labproof-site (public) · **Local:** `C:\Work\Active Projects\Labproof Tech Website\labproof-site`
 - **Pages:** Home (hero · intro strip · Projects · Notes CTA · footer) and Notes (index + 8 articles). About section removed.
@@ -12,6 +23,15 @@ Living status for the **labproof.tech** site.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
+### 2026-07-15
+Fixed `stocktracker-card.svg`'s mark colors as part of the cross-project "The Exchange Brand
+System v2.0" rollout (Ron grouped the three tracker apps under that name and authored a v2.0
+spec in claude.ai/design, pulled via DesignSync — see HKSE Tracker's STATUS.md for full context).
+The card's green ramp was reversed and off-spec (`#5CE09A`/`#1DBE68`/`#12A356`); corrected to
+`#17AE5E`/`#2ED47A`/`#54EE9A` (darkest bar on top), matching the mark everywhere else it renders.
+No copy changes to the card entry in `index.astro`. Built clean, confirmed in `dist/`. Not
+committed or deployed — holding for Ron's go-ahead alongside the tracker apps.
+
 ### 2026-07-14 (second entry)
 Shipped the **OUTLINK** project card (newest-first, above BLUEOS) — link-in-bio + dynamic
 QR platform for Kraken's clients, external href https://outlink.my, card SVG
