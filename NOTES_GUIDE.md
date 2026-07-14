@@ -108,6 +108,7 @@ Keep your notes aligned to your persona (Ron Chow):
 - **Defensible.** No claims you can't stand behind.
 - **Malaysian context.** Your readers are Malaysian business operators.
 - **No jargon.** "Intelligence service" not "AI-powered insights." "Automation" not "multi-agent pipeline."
+- **Builder's-diary exception (decision 2026-07-14):** notes in the `automation-professional-services` pillar may discuss building with AI openly — how Ron works, what changed when building got cheap. The no-jargon rule still governs how *services* are positioned; it doesn't ban writing about the craft itself. Keep it operator-voiced and defensible, never vendor-flavored.
 
 ---
 
