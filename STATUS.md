@@ -92,7 +92,8 @@ live-verified (card + linked hub page + both market cross-links), committed + pu
   ("this round focus on X"), so re-offer the menu, don't assume.
 - **Deploy coordination (deferred, discussed not started):** multiple Claude sessions deploy to the same VPS and have clobbered each other's SSH `authorized_keys`. Plan: a `manifest` (project → repo → VPS path → URL → local folder) + a manifest-driven **deploy agent** (rsync, append-safe key, deploy lock, stamp deployed commit) + a read-only **dashboard**. Possibly an Obsidian human-knowledge layer on top.
 - **Deploy discipline to adopt:** *commit → deploy that exact commit → stamp the SHA on the server*, so local always provably matches live.
-- **KOVR thumbnail** uses the app icon; swap for a custom thumbnail if wanted.
+- ~~KOVR thumbnail~~ — resolved: card redesigned as full-bleed brand SVG 2026-07-13; card
+  switched to `demo` 2026-07-14.
 - ~~Security: rotate the Hostinger API token~~ — resolved 2026-07-13 per the area
   `CLAUDE.md`: token deleted in hPanel (no replacement; nothing uses the API), VPS root
   password already rotated 2026-07-05.
