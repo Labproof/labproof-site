@@ -9,8 +9,8 @@ Living status for the **labproof.tech** site.
   Day One** (`walking-skeleton-day-one` — deploy the thinnest end-to-end slice on the real URL
   before building features) and **Lock Scope Before You Prompt** (`lock-scope-before-you-prompt`
   — written scope doc before building; cheap building makes ambiguity the expensive failure).
-  Notes count now **10**. Built and verified locally (both pages render, listed on /notes and
-  home). Deploy: pending Ron's go.
+  Notes count now **10**. Committed (`9aea9cc`), pushed to GitHub, deployed via
+  `Deploy-VPS.ps1` — live-verified (both article pages 200, listed on /notes, site 200).
 
 ## Current state — 2026-07-15 (superseded by the entry above)
 - **THE EXCHANGE card fix — LIVE.** Part of the same-session Exchange Brand System v2.0 rollout
@@ -35,9 +35,9 @@ Notes round: two published, one per pillar from the 2026-07-14 menu — **Walkin
 One** (shipping: go live day one; deployment is where the surprises live; everything after is a
 small delta; verify on the real URL) and **Lock Scope Before You Prompt** (process: scope on
 paper before building; short instructions become safe; "done" checkable; drift visible). Both
-builder's-diary voiced per `NOTES_GUIDE.md`. Built, verified in dist (article pages + /notes
-+ home listing). Also committed leftover 07-15 housekeeping (STATUS entry, `CLAUDE.md.bak` →
-`_archive/`). Noted: `/shou-yu` (personal principles page) shipped 2026-07-13 in `d0835ff` but
+builder's-diary voiced per `NOTES_GUIDE.md`. Committed (`9aea9cc`), pushed, deployed via
+`Deploy-VPS.ps1`, live-verified (both pages 200 and listed on /notes). Also committed leftover
+07-15 housekeeping (STATUS entry, `CLAUDE.md.bak` → `_archive/`). Noted: `/shou-yu` (personal principles page) shipped 2026-07-13 in `d0835ff` but
 was never logged here — already live, no action.
 
 ### 2026-07-15
