@@ -3,16 +3,23 @@
 Living status for the **labproof.tech** site.
 **Read this first each session to catch up; update it before you finish** (refresh "Current state", add a dated Log entry, adjust "Open threads"). Setup/deploy rules live in `CLAUDE.md`.
 
-## Current state — 2026-07-15
-- **THE EXCHANGE card fixed, not yet deployed:** as part of the same-session Exchange Brand
-  System v2.0 rollout (see HKSE Tracker's STATUS.md for full context), `stocktracker-card.svg`'s
-  mark colors were wrong — reversed order and off-spec hexes (`#5CE09A`/`#1DBE68`/`#12A356`,
-  lightest bar on top). Fixed to the spec's actual dark-theme green ramp `#17AE5E`/`#2ED47A`/
-  `#54EE9A` (darkest on top, matching every other rendering of the mark across the three tracker
-  apps). `index.astro`'s card entry (title/blurb/tag/href) already read correctly — no copy
-  change needed. `npm run build` clean; confirmed the built `dist/img/stocktracker-card.svg`
-  carries the fix. **Not committed/deployed yet** — holding for Ron's go-ahead alongside the
-  tracker apps' rebrand.
+## Current state — 2026-07-23
+- **Two new notes published** (both `automation-professional-services`, one per pillar of the
+  2026-07-14 topic menu — Ron picked "two, one per pillar" this round): **Walking Skeleton,
+  Day One** (`walking-skeleton-day-one` — deploy the thinnest end-to-end slice on the real URL
+  before building features) and **Lock Scope Before You Prompt** (`lock-scope-before-you-prompt`
+  — written scope doc before building; cheap building makes ambiguity the expensive failure).
+  Notes count now **10**. Built and verified locally (both pages render, listed on /notes and
+  home). Deploy: pending Ron's go.
+
+## Current state — 2026-07-15 (superseded by the entry above)
+- **THE EXCHANGE card fix — LIVE.** Part of the same-session Exchange Brand System v2.0 rollout
+  (see HKSE Tracker's STATUS.md for full context). `stocktracker-card.svg`'s mark colors were
+  wrong — reversed order and off-spec hexes (`#5CE09A`/`#1DBE68`/`#12A356`, lightest bar on top).
+  Fixed to the spec's actual dark-theme green ramp `#17AE5E`/`#2ED47A`/`#54EE9A` (darkest on top,
+  matching every other rendering of the mark across the three tracker apps). `index.astro`'s card
+  entry (title/blurb/tag/href) already read correctly — no copy change needed. Committed
+  (`b796a96`), pushed to GitHub, deployed via `Deploy-VPS.ps1`, external health 200.
 
 ## Current state — 2026-07-14 (superseded by the entry above)
 - **Live:** https://labproof.tech — Hostinger VPS (Ubuntu + nginx), HTTPS via Let's Encrypt.
@@ -23,14 +30,24 @@ Living status for the **labproof.tech** site.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
+### 2026-07-23
+Notes round: two published, one per pillar from the 2026-07-14 menu — **Walking Skeleton, Day
+One** (shipping: go live day one; deployment is where the surprises live; everything after is a
+small delta; verify on the real URL) and **Lock Scope Before You Prompt** (process: scope on
+paper before building; short instructions become safe; "done" checkable; drift visible). Both
+builder's-diary voiced per `NOTES_GUIDE.md`. Built, verified in dist (article pages + /notes
++ home listing). Also committed leftover 07-15 housekeeping (STATUS entry, `CLAUDE.md.bak` →
+`_archive/`). Noted: `/shou-yu` (personal principles page) shipped 2026-07-13 in `d0835ff` but
+was never logged here — already live, no action.
+
 ### 2026-07-15
 Fixed `stocktracker-card.svg`'s mark colors as part of the cross-project "The Exchange Brand
 System v2.0" rollout (Ron grouped the three tracker apps under that name and authored a v2.0
 spec in claude.ai/design, pulled via DesignSync — see HKSE Tracker's STATUS.md for full context).
 The card's green ramp was reversed and off-spec (`#5CE09A`/`#1DBE68`/`#12A356`); corrected to
 `#17AE5E`/`#2ED47A`/`#54EE9A` (darkest bar on top), matching the mark everywhere else it renders.
-No copy changes to the card entry in `index.astro`. Built clean, confirmed in `dist/`. Not
-committed or deployed — holding for Ron's go-ahead alongside the tracker apps.
+No copy changes to the card entry in `index.astro`. Committed (`b796a96`), pushed to GitHub,
+deployed via `Deploy-VPS.ps1` alongside the tracker apps' rebrand — external health 200.
 
 ### 2026-07-14 (second entry)
 Shipped the **OUTLINK** project card (newest-first, above BLUEOS) — link-in-bio + dynamic
@@ -105,10 +122,10 @@ live-verified (card + linked hub page + both market cross-links), committed + pu
 - Initial site built (Astro + Tailwind), deployed to VPS, DNS pointed to VPS, SSL enabled.
 
 ## Open threads / next steps
-- **Notes pipeline** ← next: 6 topic candidates from the 2026-07-14 options round are still
-  unpicked — process: lock scope before you prompt · verify before you call it done ·
-  automate-prep sequel (where to draw the line); shipping: walking skeleton day one ·
-  one server, many products · small products deserve real brands. Ron picks per round
+- **Notes pipeline** ← next: 4 topic candidates still unpicked from the 2026-07-14 menu —
+  process: verify before you call it done · automate-prep sequel (where to draw the line);
+  shipping: one server, many products · small products deserve real brands. (Picked 2026-07-23:
+  walking skeleton day one · lock scope before you prompt.) Ron picks per round
   ("this round focus on X"), so re-offer the menu, don't assume.
 - **Deploy coordination (deferred, discussed not started):** multiple Claude sessions deploy to the same VPS and have clobbered each other's SSH `authorized_keys`. Plan: a `manifest` (project → repo → VPS path → URL → local folder) + a manifest-driven **deploy agent** (rsync, append-safe key, deploy lock, stamp deployed commit) + a read-only **dashboard**. Possibly an Obsidian human-knowledge layer on top.
 - **Deploy discipline to adopt:** *commit → deploy that exact commit → stamp the SHA on the server*, so local always provably matches live.
