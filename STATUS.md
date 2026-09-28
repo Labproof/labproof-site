@@ -30,6 +30,18 @@ Living status for the **labproof.tech** site.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
+### 2026-09-28 (in progress)
+Card accuracy pass (Ron picked it over a notes round). Drift check clean (nothing changed since
+07-23; repo in sync with origin; site 200 on v4 + v6). OUTLINK / THE EXCHANGE / KOVR cards
+checked against their live products — accurate. **BLUEOS card is stale, and so is the `/blueos`
+landing page it links to** (both still v1: "WhatsApp-first", "book by messaging the shop's number"
+— the WA bot was never connected to Meta, so that claim was never true; v2 since 09-09 is counter
+tickets + catalogue + menu booking + payments + entitlements, Telegram as demo channel).
+**Decision:** rewrite card AND landing page to v2 as it runs today, no channel claims we can't
+back (rejected: card only — would contradict the page it links to; strip-claims only — keeps
+the old product description). Landing page lives in the BLUEOS app (`Car Wash WhatsApp Booking\app\app\page.tsx`),
+so it's two deploys, each on Ron's go.
+
 ### 2026-07-23
 Notes round: two published, one per pillar from the 2026-07-14 menu — **Walking Skeleton, Day
 One** (shipping: go live day one; deployment is where the surprises live; everything after is a
