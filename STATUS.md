@@ -3,7 +3,13 @@
 Living status for the **labproof.tech** site.
 **Read this first each session to catch up; update it before you finish** (refresh "Current state", add a dated Log entry, adjust "Open threads"). Setup/deploy rules live in `CLAUDE.md`.
 
-## Current state — 2026-07-23
+## Current state — 2026-09-28
+- **Card accuracy pass done.** All four project cards checked against their live products. BLUEOS card
+  (and the `/blueos` landing page it links to) rewritten from v1 to v2 — counter tickets, catalogue,
+  customer menu + booking, payments on record, prepaid packages. Deployed and live-verified (`4d1704d`).
+  OUTLINK / THE EXCHANGE / KOVR accurate as they stand. Notes count unchanged at **10**.
+
+## Current state — 2026-07-23 (superseded by the entry above)
 - **Two new notes published** (both `automation-professional-services`, one per pillar of the
   2026-07-14 topic menu — Ron picked "two, one per pillar" this round): **Walking Skeleton,
   Day One** (`walking-skeleton-day-one` — deploy the thinnest end-to-end slice on the real URL
@@ -30,7 +36,7 @@ Living status for the **labproof.tech** site.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
-### 2026-09-28 (in progress)
+### 2026-09-28
 Card accuracy pass (Ron picked it over a notes round). Drift check clean (nothing changed since
 07-23; repo in sync with origin; site 200 on v4 + v6). OUTLINK / THE EXCHANGE / KOVR cards
 checked against their live products — accurate. **BLUEOS card is stale, and so is the `/blueos`
@@ -41,6 +47,13 @@ tickets + catalogue + menu booking + payments + entitlements, Telegram as demo c
 back (rejected: card only — would contradict the page it links to; strip-claims only — keeps
 the old product description). Landing page lives in the BLUEOS app (`Car Wash WhatsApp Booking\app\app\page.tsx`),
 so it's two deploys, each on Ron's go.
+**Shipped (Ron: "Deploy both"):** BLUEOS landing copy rewritten (layout untouched; v1 page archived in that
+project's `_archive/landing-v1-2026-09-28/`) and deployed — `/blueos` 200, zero "WhatsApp" on the page, menu/login
+200, counter 307, Telegram webhook configured. Card blurb/tag/alt updated here, committed (`4d1704d`), deployed,
+pushed; live-verified (new blurb on the home page, card SVG 200, v4 + v6 200). web-proof pass on both pages at
+375/768/1280 before deploy — 6 captures looked at, DOM audit clean apart from pre-existing design choices.
+Deploy note: `Deploy-VPS.ps1` aborts under PS 5.1 when `nginx -t` writes "syntax is ok" to stderr (after
+extract + perms, before reload) — content was already live; reload run by hand.
 
 ### 2026-07-23
 Notes round: two published, one per pillar from the 2026-07-14 menu — **Walking Skeleton, Day
@@ -134,6 +147,17 @@ live-verified (card + linked hub page + both market cross-links), committed + pu
 - Initial site built (Astro + Tailwind), deployed to VPS, DNS pointed to VPS, SSL enabled.
 
 ## Open threads / next steps
+- **BLUEOS Basic/Premium split — proposed, shipped, not yet confirmed by Ron.** Basic = run the counter;
+  Premium = menu, bookings, chat, packages, customer records. The "Booking in chat" line rests on the
+  Telegram bot, whose production test (flow D of BLUEOS's UAT plan) hasn't run — if it fails, drop the line.
+- **Tablet-width layout bug on the home page (pre-existing, found 2026-09-28):** at ~768px the note cards
+  clip their dates ("23 JUL 26…") past the card edge and the hero buttons squeeze to three lines. Small CSS
+  fix; not started.
+- **`Deploy-VPS.ps1` stderr abort:** under PS 5.1 + `$ErrorActionPreference='Stop'`, `nginx -t`'s stderr
+  kills the script before `systemctl reload nginx` and the HTTP check. Harmless for static content but the
+  script reports failure. Fix: wrap the ssh call so stderr isn't fatal (e.g. `2>&1 | Out-String` or a local
+  `$ErrorActionPreference='Continue'` around it).
+- **OUTLINK card:** revisit when Outlink QR moves from test deployment to production (cutover pending).
 - **Notes pipeline** ← next: 4 topic candidates still unpicked from the 2026-07-14 menu —
   process: verify before you call it done · automate-prep sequel (where to draw the line);
   shipping: one server, many products · small products deserve real brands. (Picked 2026-07-23:
