@@ -36,6 +36,13 @@ Living status for the **labproof.tech** site.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
+### 2026-09-28 (second thread — notes round, in progress)
+Ron asked for more content ideas → a 23-idea bank drawn from the vault (Principles, Gotchas, Domains).
+**Picked, each with "do more research" first:** #9 *The six-year clock* (Limitation Act → malaysian-market-insights),
+#15 *Reach is not quality* (visibility vs rating → intelligence-service-building), #20 *One false positive costs
+more than ten misses* (precision over recall → products-for-intermediaries). One per neglected pillar — first
+non-automation notes since June. Guardrails: no client names, no client-derived default-rate figures.
+
 ### 2026-09-28
 Card accuracy pass (Ron picked it over a notes round). Drift check clean (nothing changed since
 07-23; repo in sync with origin; site 200 on v4 + v6). OUTLINK / THE EXCHANGE / KOVR cards
