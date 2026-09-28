@@ -3,6 +3,11 @@
 Living status for the **labproof.tech** site.
 **Read this first each session to catch up; update it before you finish** (refresh "Current state", add a dated Log entry, adjust "Open threads"). Setup/deploy rules live in `CLAUDE.md`.
 
+## Current state — 2026-09-28 (notes round)
+- **13 notes.** Three research-backed notes published, one per neglected pillar: *The Six-Year Clock*
+  (malaysian-market-insights), *Reach Is Not Quality* (intelligence-service-building), *One Wrong Suggestion
+  Costs More Than Ten Misses* (products-for-intermediaries). Each cites its sources; links now styled.
+
 ## Current state — 2026-09-28
 - **Card accuracy pass done.** All four project cards checked against their live products. BLUEOS card
   (and the `/blueos` landing page it links to) rewritten from v1 to v2 — counter tickets, catalogue,
@@ -36,12 +41,25 @@ Living status for the **labproof.tech** site.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
-### 2026-09-28 (second thread — notes round, in progress)
+### 2026-09-28 (second thread — notes round)
 Ron asked for more content ideas → a 23-idea bank drawn from the vault (Principles, Gotchas, Domains).
 **Picked, each with "do more research" first:** #9 *The six-year clock* (Limitation Act → malaysian-market-insights),
 #15 *Reach is not quality* (visibility vs rating → intelligence-service-building), #20 *One false positive costs
 more than ten misses* (precision over recall → products-for-intermediaries). One per neglected pillar — first
 non-automation notes since June. Guardrails: no client names, no client-derived default-rate figures.
+Three parallel research passes changed each thesis before writing:
+- **Six-year clock:** 6 years is Peninsular Malaysia only (s.1(2)); Sabah/Sarawak ordinances give **3 years** for
+  price of goods sold. Not "permanently unenforceable": the bar must be pleaded (s.4), the debt survives (Contracts
+  Act s.26(c)). Only the debtor's signed written acknowledgment or part payment restarts it (ss.26(2), 27) — an SMS
+  counts (*Yam Kong Seng*, FC 2014); letters of demand don't. Ariely & Wertenbroch (2002) avoided (reported retracted).
+- **Reach is not quality:** anchored on Li & Hecht 2020 (Google Maps: chains more reviews, lower rating). "Volume beats
+  stars" dropped as overstated. No credible SEA discovery survey exists — SEA read attributed to our own censuses.
+- **Wrong suggestion:** "ten" stated as a rule of thumb (no study gives a ratio). Rule split by task: completeness
+  tasks (e-discovery, screening) favour recall; suggestion tasks favour precision. Added "say what you didn't check"
+  (automation-bias omission errors).
+Also: `.prose a` link style added to `notes/[slug].astro` (no existing note had links). web-proof on the 3 notes +
+/notes + one existing note at 375/1280: clean. Committed `0625590`, deployed, pushed; live-verified (all 200, listed).
+Notes count now **13**. Deploy script hit the known nginx-stderr abort again; reload finished by hand.
 
 ### 2026-09-28
 Card accuracy pass (Ron picked it over a notes round). Drift check clean (nothing changed since
@@ -165,11 +183,11 @@ live-verified (card + linked hub page + both market cross-links), committed + pu
   script reports failure. Fix: wrap the ssh call so stderr isn't fatal (e.g. `2>&1 | Out-String` or a local
   `$ErrorActionPreference='Continue'` around it).
 - **OUTLINK card:** revisit when Outlink QR moves from test deployment to production (cutover pending).
-- **Notes pipeline** ← next: 4 topic candidates still unpicked from the 2026-07-14 menu —
-  process: verify before you call it done · automate-prep sequel (where to draw the line);
-  shipping: one server, many products · small products deserve real brands. (Picked 2026-07-23:
-  walking skeleton day one · lock scope before you prompt.) Ron picks per round
-  ("this round focus on X"), so re-offer the menu, don't assume.
+- **Notes pipeline:** a 23-idea bank was offered 2026-09-28 (#1–8 process/shipping, #9–23 from the vault's
+  Principles, Gotchas and Domains); #9, #15, #20 published. Bank lives in the vault hub note (not this public
+  repo). Ron picks per round and asked for research first last time — re-offer, don't assume.
+- **Lists in notes render without bullets/numbers** (Tailwind preflight; `.prose ul/ol` sets no list-style) —
+  pre-existing, affects older notes too. Small template fix if wanted.
 - **Deploy coordination (deferred, discussed not started):** multiple Claude sessions deploy to the same VPS and have clobbered each other's SSH `authorized_keys`. Plan: a `manifest` (project → repo → VPS path → URL → local folder) + a manifest-driven **deploy agent** (rsync, append-safe key, deploy lock, stamp deployed commit) + a read-only **dashboard**. Possibly an Obsidian human-knowledge layer on top.
 - **Deploy discipline to adopt:** *commit → deploy that exact commit → stamp the SHA on the server*, so local always provably matches live.
 - ~~KOVR thumbnail~~ — resolved: card redesigned as full-bleed brand SVG 2026-07-13; card
