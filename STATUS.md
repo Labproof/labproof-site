@@ -41,6 +41,13 @@ Living status for the **labproof.tech** site.
 - **Deploy:** `.\Deploy-VPS.ps1` (build → rsync/scp dist → reload nginx). Deploys from the working folder (not a pinned commit — see Open threads).
 
 ## Log (newest first)
+### 2026-09-28 (close-out — obsidian-keep)
+Session covered two threads (card accuracy pass; notes round), both shipped and logged below. Close-out: next
+action set to the small fixes batch. Vault corrected: Limitation Act claims in `Credit & Debt Recovery
+(Malaysia).md` and `Markets/Malaysia.md` (Peninsular-only 6 years; Sabah/Sarawak 3; time-barred ≠ extinguished).
+Same inaccurate "permanently unenforceable" wording found in the AR AP Analyzer's client-report instructions —
+flagged as a separate task, not edited here.
+
 ### 2026-09-28 (second thread — notes round)
 Ron asked for more content ideas → a 23-idea bank drawn from the vault (Principles, Gotchas, Domains).
 **Picked, each with "do more research" first:** #9 *The six-year clock* (Limitation Act → malaysian-market-insights),
@@ -172,6 +179,9 @@ live-verified (card + linked hub page + both market cross-links), committed + pu
 - Initial site built (Astro + Tailwind), deployed to VPS, DNS pointed to VPS, SSL enabled.
 
 ## Open threads / next steps
+- **← NEXT ACTION (Ron, 2026-09-28 close-out): small fixes batch** — one pass on the three logged defects below:
+  lists in notes render without bullets/numbers · tablet-width clipping on home note cards + squeezed hero
+  buttons · `Deploy-VPS.ps1` aborting on nginx's stderr. Build, web-proof at 375/768/1280, deploy on his go.
 - **BLUEOS Basic/Premium split — proposed, shipped, not yet confirmed by Ron.** Basic = run the counter;
   Premium = menu, bookings, chat, packages, customer records. The "Booking in chat" line rests on the
   Telegram bot, whose production test (flow D of BLUEOS's UAT plan) hasn't run — if it fails, drop the line.
